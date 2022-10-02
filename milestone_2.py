@@ -7,6 +7,7 @@ while True:
     else:
         print("Invalid letter, please enter a single alphabetical character")
 
+# checks if user input is in the word
 word = "apple"
 while True:
     guess = str(input("Guess a letter "))
