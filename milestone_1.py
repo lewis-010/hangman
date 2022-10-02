@@ -1,3 +1,9 @@
+# import libraries
+import random
+
 # create list for 5 favourite fruits
 word_list = ["banana", "grape", "watermelon", "apple", "plum"]
-print(word_list)
+
+# pass list through random module
+word = random.choice(word_list)
+print(word)
