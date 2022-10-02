@@ -1,3 +1,4 @@
+# iteratively checks user input validity
 while True:
     guess = input("Guess a letter ")
     if guess.isalpha() and len(guess)==1:
