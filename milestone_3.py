@@ -21,7 +21,12 @@ class Hangman():
         else:
             self.num_lives-=1
             print(f"Sorry, {guess} is not in the word")
-            print(f"You have {self.num_lives} lives left.")
+            if self.num_lives > 2 and self.num_lives!=1:
+                print(f"You have {self.num_lives} lives left.")
+            elif self.num_lives==2:
+                print("Uh oh, only two lives left!")
+            else:
+                print("Only 1 life left, make it count!")
         self.list_of_guesses.append(guess)
 
 
@@ -38,13 +43,17 @@ class Hangman():
                 break
 
 def play_game():
-    word_list = ["banana", "grape", "watermelon", "apple", "plum"]
-    num_lives = input("How many lives would you like? ")
+    word_list = ["banana", "grape", "watermelon", "apple", "plum", "cherry", "lemon", "orange", "mango", "papaya"]
+    num_lives = input("Welcome to hangman. How many lives would you like? ")
+    print("Good luck! HINT: the word is a type of fruit.")
     game = Hangman(word_list, num_lives)
     while True:
             if game.num_lives==0:
-                print("You have lost.")
+                print("Sorry, game over.")
                 break
+            elif game.num_letters == 1:
+                print("Only one letter left!")
+                game.ask_for_input()
             elif game.num_letters > 0:
                 game.ask_for_input()
             elif game.num_lives !=0 and game.num_letters==0:
