@@ -15,11 +15,13 @@ class Hangman():
             print(f"Good guess! {guess} is in the word.")
             for i,letter in enumerate(self.word):
                 if guess == letter:
-                    print("Well done!")
                     self.word_guessed[i] = guess
-            self.num_lives-=1
+            self.num_letters-=1
         else:
-            self.list_of_guesses.append(guess)
+            self.num_lives-=1
+            print(f"Sorry, {guess} is not in the word")
+            print(f"You have {self.num_lives} left.")
+        self.list_of_guesses.append(guess)
 
 
     
@@ -29,7 +31,7 @@ class Hangman():
             if len(guess)>1 or not guess.isalpha():
                 print("Invald letter. Please enter a single alphabetical character.")
             elif guess in self.list_of_guesses:
-                print("You already tried that letter.")
+                print("You have already tried that letter.")
             else:
                 self.check_guess(guess)
                 break
