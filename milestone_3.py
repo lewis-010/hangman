@@ -1,4 +1,3 @@
-from ast import Break
 import random
 
 class Hangman():
