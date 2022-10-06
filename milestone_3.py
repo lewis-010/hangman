@@ -35,5 +35,4 @@ class Hangman():
             else:
                 self.check_guess(guess)
                 break
-    
-Hangman().ask_for_input()
+
