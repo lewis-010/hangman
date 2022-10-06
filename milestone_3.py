@@ -30,8 +30,6 @@ class Hangman():
                 print("Only 1 life left, make it count!")
         self.list_of_guesses.append(guess)
 
-
-    
     def ask_for_input(self):
         while True:
             guess = input("Guess a letter: ")
