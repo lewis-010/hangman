@@ -59,4 +59,5 @@ def play_game():
                 print("Congratulations, you have won!")
                 break
 
-play_game()
+if __name__=="__main__":
+    play_game()
