@@ -2,6 +2,25 @@ import random
 
 class Hangman():
     def __init__(self, word_list, num_lives=5):
+        ''' Parameters:
+            ----------
+            word_list: list
+                List of words to be guessed
+            num_lives: int
+                Number of lives the player has
+            
+            Attributes:
+            ----------
+            word: str
+                The word to be guessed (picked randomly from word_list)
+            word_guessed: list
+                List of the letters of each word, with unguessed letters represented
+                with '_'
+            num_letters: int
+                The number of unique letters in the word the word that have not been guessed
+            list_of_guesses: list
+                List of the letters that have already been attempted 
+            '''
         self.word = random.choice(word_list).lower()
         self.word_guessed = len(self.word)*["_"]
         self.num_letters = len(set(self.word))
