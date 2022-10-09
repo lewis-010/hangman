@@ -64,7 +64,7 @@ class Hangman():
 
     def ask_for_input(self):
         ''' 
-        Request input from user and checks validity of the guess.
+        Requests input from user and checks validity of the guess.
         If valid (single alphabetical character):
             - runs check_guess method
         If invalid:
