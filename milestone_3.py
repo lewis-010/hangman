@@ -14,12 +14,13 @@ class Hangman():
             word: str
                 The word to be guessed (picked randomly from word_list)
             word_guessed: list
-                List of the letters of each word, with unguessed letters represented
-                with '_'
+                List of the letters of each word, with unguessed letters represented with '_'
             num_letters: int
                 The number of unique letters in the word the word that have not been guessed
             list_of_guesses: list
                 List of the letters that have already been attempted 
+            print_msg: list
+                List of print statements to be randomly shown if a guess is correct
             '''
         self.word = random.choice(word_list).lower()
         self.word_guessed = len(self.word)*["_"]
@@ -30,6 +31,16 @@ class Hangman():
         self.print_msg = ["Nice one!", "Good guess!", "Getting there!", "That's correct!", "Well played!", "Yep, that's a letter!"]
 
     def check_guess(self, guess):
+        ''' Checks if the player's guess is in the word.
+            In correct: 
+                - random string from print_msg list is shown 
+                - '_' in word_guessed list is replaced with correct letter
+                - value of num_letters decreases by 1
+            If incorrect:
+                - value of num_lives decreases by 1
+                - number of lives remaining printed to player
+            Letter guesses is appended to list_of_guesses.        
+        '''
         guess = guess.lower()
         if guess in self.word:
             print(f"{random.choice(self.print_msg)} {guess} is in the word.")
