@@ -31,15 +31,16 @@ class Hangman():
         self.print_msg = ["Nice one!", "Good guess!", "Getting there!", "That's correct!", "Well played!", "Yep, that's a letter!"]
 
     def check_guess(self, guess):
-        ''' Checks if the player's guess is in the word.
-            In correct: 
-                - random string from print_msg list is shown 
-                - '_' in word_guessed list is replaced with correct letter
-                - value of num_letters decreases by 1
-            If incorrect:
-                - value of num_lives decreases by 1
-                - number of lives remaining printed to player
-            Letter guesses is appended to list_of_guesses.        
+        ''' 
+        Checks if the player's guess is in the word.
+        If correct: 
+            - random string from print_msg list is shown 
+            - '_' in word_guessed list is replaced with correct letter
+            - value of num_letters decreases by 1
+        If incorrect:
+            - value of num_lives decreases by 1
+            - number of lives remaining printed to player
+        Letter guessed is appended to list_of_guesses.        
         '''
         guess = guess.lower()
         if guess in self.word:
@@ -61,6 +62,13 @@ class Hangman():
         self.list_of_guesses.append(guess)
 
     def ask_for_input(self):
+        ''' 
+        Request input from user and checks validity of the guess.
+        If valid (single alphabetical character):
+            - runs check_guess method
+        If invalid:
+            - prints request for a valid input or prints guess already in list_of_guesses        
+        '''
         while True:
             guess = input("Guess a letter: ")
             if len(guess)>1 or not guess.isalpha():
